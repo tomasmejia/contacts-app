@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import ContactList from './components/ContactList/ContactList';
+import ContactDetail from './components/ContactDetail/ContactDetail';
+
+import useContacts from  './hooks/useContacts'
+import { findById } from './utils/findById';
+
+
 import './App.css';
 
-function App() {
+const App = () => {
+  const contacts = useContacts();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Route path="/" exact render={() => (<ContactList contacts={contacts} />)} />
+        <Route path="/:id" render={({match}) => <ContactDetail contact={findById(contacts, match.params.id)} />} />
+      </div>
+    </BrowserRouter>
   );
 }
 
