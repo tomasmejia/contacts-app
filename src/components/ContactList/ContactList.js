@@ -8,12 +8,12 @@ import './ContactList.css';
 const ContactList = ({ contacts }) => {
   const sortedContacts = contacts.sort((a, b) => sortStringAsc(a, b));
   return (
-    <div className='page'>
-      <div className='section menu'><h3>Contacts</h3></div>
-      <div className='section header'>
+    <div className='Page'>
+      <div className='Page__section Section__menu'><h3>Contacts</h3></div>
+      <div className='Page__section Section__header'>
         <h1>Favorite contacts </h1>
       </div>
-      <div className='section content'>
+      <div className='Page__section Section__content'>
         {sortedContacts
           .filter(contact => contact.isFavorite)
           .map((contact) => (
@@ -27,10 +27,10 @@ const ContactList = ({ contacts }) => {
             />
           ))}
       </div>
-      <div className='section header'>
+      <div className='Page__section Section__header'>
         <h1>Other contacts </h1>
       </div>
-      <div className='section content'>
+      <div className='Page__section Section__content'>
         {sortedContacts
           .filter(contact => !contact.isFavorite)
           .map((contact) => (

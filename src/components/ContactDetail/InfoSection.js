@@ -1,11 +1,17 @@
 import React from 'react';
 
-const InfoSection = ({number, value}) => {
+import './InfoSection.css';
+
+const InfoSection = ({ title, mainVal, optVal }) => {
   return (
-    <div>
-      {number} {value}
+    <div className='Info'>
+      <h3 className='Info__title'>{title}: </h3>
+      <div className='Info__detail'>
+        <span className='Info__detail--main'>{mainVal}</span>
+        {optVal ? <span className='Info__detail--optional'>{optVal}</span> : ''}
+      </div>
     </div>
-  )
+  );
 };
 
 export default InfoSection;

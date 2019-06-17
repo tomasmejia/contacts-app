@@ -8,9 +8,12 @@ import './ContactDetail.css';
 
 const ContactDetail = ({ contact, handleFavorite }) => {
   if (contact) {
-    const { phone, address } = contact;
+    const { name, phone, address, birthdate, emailAddress, companyName  } = contact;
+    const fullAddress =
+    `${address.street}, ${address.city}, ${address.state} ${address.zipCode}, ${address.country}`;
+
     return (
-      <div className='page'>
+      <div className='Page'>
         <div className='Detail__section Detail__menu'>
           <Link to='/'>
             <span>&lt; Go back</span>
@@ -18,34 +21,31 @@ const ContactDetail = ({ contact, handleFavorite }) => {
           <span
             className='Detail__favorite'
             onClick={() => handleFavorite(contact.id)}>
-            {contact.isFavorite ? '⭐' : '🌠'}
+            {contact.isFavorite ? '★' : '☆'}
           </span>
         </div>
-        <div className='Detail__section content'>
+        <div className='Detail__section Section__content'>
           <Image
             src={contact.largeImageURL}
             alt={contact.name}
             isSmall={false}
           />
-          <div className="Detail__main">
-            <h1 className="Detail__main--title">{contact.name || ''}</h1>
-            <p className="Detail__main--company ">{contact.companyName || ''}</p>
+          <div className='Detail__main'>
+            <h1 className='Detail__main--title'>{name}</h1>
+            { companyName && <h2 className='Detail__main--company '>{companyName}</h2>}
           </div>
-          <div>
-            {Object.keys(phone).map((key, i) => <InfoSection key={i} number={phone[key]} value={key} />)}
-          </div>
-          <div>
-          {Object.values(address).map((key, i) => {
-            let sentence = '';
-            sentence += ` ${key}`;
-            return sentence;
-          })}
-          </div>
-          <div>
-            <h3>{contact.birthdate || ''}</h3>
-          </div>
-          <div>
-            <h3>{contact.emailAddress || ''}</h3>
+          <div className='Detail__info'>
+            {Object.keys(phone).map((key, i) => (
+              <InfoSection
+                title='Phone'
+                key={i}
+                mainVal={phone[key]}
+                optVal={key}
+              />
+            ))}
+            { address && <InfoSection title='Address' mainVal={fullAddress} /> }
+            { birthdate && <InfoSection title='Birthdate' mainVal={birthdate} /> }
+            { emailAddress && <InfoSection title='Email' mainVal={emailAddress} /> }
           </div>
         </div>
       </div>

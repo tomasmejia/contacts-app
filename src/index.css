@@ -5,6 +5,7 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   color: #2f2f2f;
+  background: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -16,9 +17,8 @@ a, a:hover, a:focus, a:active {
 
 /* Small Devices, Tablets */
 /* Mobile Styles */
-@media only screen and (max-width: 400px) {
+@media only screen and (min-width: 320px) {
   body {
-    background-color: #F09A9D; /* Red */
     font-size: 14px;
   }
 }
@@ -26,13 +26,13 @@ a, a:hover, a:focus, a:active {
 /* Tablet Styles */
 @media only screen and (min-width: 401px) and (max-width: 960px) {
   body {
-    background-color: #F5CF8E; /* Yellow */
+    font-size: 16px;
   }
 }
 
 /* Desktop Styles */
-@media only screen and (min-width: 961px) {
+@media only screen and (min-width: 1024px) {
   body {
-    background-color: #B2D6FF; /* Blue */
+    font-size: 18px;
   }
 }

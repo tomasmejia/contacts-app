@@ -1,22 +1,22 @@
-.page {
+.Page {
   display: flex;
   flex-wrap: wrap;
 }
 
-.section {
+.Page__section {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.menu {
+.Section__menu {
   background-color: #f9f9f9;
   height: 80px;
   border-bottom: 1px solid #e3e3e3;
 }
 
-.header {
+.Section__header {
   background-color: #f4f4f4;
   color: #666666;
   font-size: .35rem;
@@ -27,7 +27,7 @@
   text-transform: uppercase;
 }
 
-.content {
+.Section__content {
   background-color: #fff;
   height: 100%;
   width: 100%;

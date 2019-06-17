@@ -1,0 +1,30 @@
+.Info {
+  border-bottom: 1px solid #e3e3e3;
+  margin: 15px 0;
+  padding-bottom: 20px;
+}
+
+
+.Info__detail {
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Info__title {
+  font-size: .7rem;
+  font-weight: 500;
+  color: #b4bbc9;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.Info__detail--main {
+  font-weight: bold;
+  width: 50%;
+}
+
+.Info__detail--optional {
+  text-transform: capitalize;
+  color: #b2b2b2;
+}
