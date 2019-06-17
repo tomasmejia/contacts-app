@@ -17,7 +17,7 @@ a, a:hover, a:focus, a:active {
 
 /* Small Devices, Tablets */
 /* Mobile Styles */
-@media only screen and (min-width: 320px) {
+@media only screen and (max-width: 320px) {
   body {
     font-size: 14px;
   }

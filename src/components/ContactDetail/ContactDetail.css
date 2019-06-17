@@ -36,12 +36,14 @@
 
 .Detail__main--title {
   margin: 0;
+  text-align: center;
 }
 
 .Detail__main--company {
   font-family: 'Raleway', sans-serif;
   font-weight: normal;
   font-size: 1rem;
+  text-align: center;
   color: #a2a2a2;
   margin: 0;
 }
