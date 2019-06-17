@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-
-const API = 'https://s3.amazonaws.com/technical-challenge/v3/contacts.json';
-const PROXY = 'https://cors-anywhere.herokuapp.com/';
+import { API, PROXY } from '../config/misc';
 
 const useContacts = () => {
   const [contacts, setContacts] = useState([]);
@@ -15,7 +13,7 @@ const useContacts = () => {
       console.log(err);
     }
   }
-
+  
   useEffect(() => {
     fetchContacts()
   }, []);
