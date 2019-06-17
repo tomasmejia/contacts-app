@@ -1,7 +1,28 @@
 .Card {
-  cursor: pointer;
   display: flex;
-  border: 1px solid black;
-  margin-top: 10px;
+  width: 80%;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.Card__Description {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+.favorite:last-child {
+  border: none;
+}
+
+.Card__Description p {
+  width: 100%;
+  margin: 0;
+}
+
+.Card__Description--company {
+  font-family: 'Raleway', sans-serif;
+  font-size: .85rem;
+  color: #a2a2a2;
 }

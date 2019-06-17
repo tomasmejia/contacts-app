@@ -3,6 +3,11 @@ import { API, PROXY } from '../config/misc';
 
 const useContacts = () => {
   const [contacts, setContacts] = useState([]);
+  const setFavorite = id => {
+    setContacts(contacts.map(c => {
+      return c.id === id ? { ...c, isFavorite: !c.isFavorite } : c;
+    }))
+  }
 
   const fetchContacts = async () => {
     try {
@@ -18,7 +23,7 @@ const useContacts = () => {
     fetchContacts();
   }, []);
 
-  return contacts;
+  return {contacts, setFavorite};
 }
 
 export default useContacts;

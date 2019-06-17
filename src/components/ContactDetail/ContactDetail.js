@@ -1,45 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-import placeholder from '../../assets/user_L/user.png';
+import Image from '../shared/Image';
+import InfoSection from './InfoSection';
 
 import './ContactDetail.css';
 
-const ContactDetail = ({contact, handleFavorite}) => {
+const ContactDetail = ({ contact, handleFavorite }) => {
   if (contact) {
     const { phone, address } = contact;
     return (
-      <div className='Contact-Detail'>
-        <Link to='/'>Go back</Link>
-        <button onClick={() => handleFavorite(contact.id)}>Is Favorite?</button>
-        <span>{contact.isFavorite ? 'True' : 'False'}</span>
-        <img
-          src={contact.largeImageURL}
-          onError={e => {
-            e.target.onerror = null;
-            e.target.src = placeholder;
-          }}
-          alt={contact.name}
-        />
-        <h1>{contact.name || ''}</h1>
-        <h2>{contact.companyName || ''}</h2>
-        <div>
-          <h3>{phone.home || ''}</h3>
-          <h3>{phone.work || ''}</h3>
-          <h3>{phone.mobile || ''}</h3>
+      <div className='page'>
+        <div className='Detail__section Detail__menu'>
+          <Link to='/'>
+            <span>&lt; Go back</span>
+          </Link>
+          <span
+            className='Detail__favorite'
+            onClick={() => handleFavorite(contact.id)}>
+            {contact.isFavorite ? '⭐' : '🌠'}
+          </span>
         </div>
-        <div>
-          <h3>{address.street || ''}</h3>
-          <h3>
-            {address.city || ''}, {address.state || ''} {address.zipCode | ''},{' '}
-            {address.country || ''}
-          </h3>
-        </div>
-        <div>
-          <h3>{contact.birthdate || ''}</h3>
-        </div>
-        <div>
-          <h3>{contact.emailAddress || ''}</h3>
+        <div className='Detail__section content'>
+          <Image
+            src={contact.largeImageURL}
+            alt={contact.name}
+            isSmall={false}
+          />
+          <div className="Detail__main">
+            <h1 className="Detail__main--title">{contact.name || ''}</h1>
+            <p className="Detail__main--company ">{contact.companyName || ''}</p>
+          </div>
+          <div>
+            {Object.keys(phone).map((key, i) => <InfoSection key={i} number={phone[key]} value={key} />)}
+          </div>
+          <div>
+          {Object.values(address).map((key, i) => {
+            let sentence = '';
+            sentence += ` ${key}`;
+            return sentence;
+          })}
+          </div>
+          <div>
+            <h3>{contact.birthdate || ''}</h3>
+          </div>
+          <div>
+            <h3>{contact.emailAddress || ''}</h3>
+          </div>
         </div>
       </div>
     );

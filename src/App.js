@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import ContactList from './components/ContactList/ContactList';
@@ -10,17 +10,9 @@ import { findById } from './utils/findById';
 import './App.css';
 
 const App = () => {
-  const contacts = useContacts();
-
-  const handleFavorite = (id) => {
-    const item = findById(contacts, id);
-    item.isFavorite = !item.isFavorite;
-    console.log(item.isFavorite);
-  };
-
+  const {contacts, setFavorite} = useContacts();
   return (
     <BrowserRouter>
-      <div className='App'>
         <Switch>
           <Route
             path='/'
@@ -31,13 +23,12 @@ const App = () => {
             path='/:id'
             render={({ match, }) => (
               <ContactDetail
-                handleFavorite={handleFavorite}
+                handleFavorite={setFavorite}
                 contact={findById(contacts, match.params.id)}
               />
             )}
           />
         </Switch>
-      </div>
     </BrowserRouter>
   );
 };

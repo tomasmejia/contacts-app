@@ -1,0 +1,9 @@
+.Image--small {
+  height: 100px;
+  padding: 20px;
+}
+
+.Image--large {
+  height: 200px;
+  padding: 15px;
+}
