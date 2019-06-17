@@ -15,7 +15,7 @@ const useContacts = () => {
   }
   
   useEffect(() => {
-    fetchContacts()
+    fetchContacts();
   }, []);
 
   return contacts;
