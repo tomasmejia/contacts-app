@@ -4,24 +4,17 @@ import { Link } from 'react-router-dom';
 import Image from '../shared/Image';
 import './ContactCard.css';
 
-const ContactCard = props => {
+const ContactCard = ({isFavorite, smallImageURL, name, id, companyName}) => {
   return (
-    <Link className={`Card ${props.isFavorite ? 'favorite' : ''}`} to={props.id}>
-      <Image src={props.smallImageURL} alt={props.name} isSmall='true' />
+    <Link className={`Card ${isFavorite ? 'favorite' : ''}`} to={id}>
+      <Image src={smallImageURL} alt={name} isSmall='true' />
+      {isFavorite && (<span className="Card__star" aria-label='star' role='img'>⭐ </span>)}
       <div className="Card__Description">
         <p className='Card__Description--name'>
-          {' '}
-          {props.isFavorite ? (
-            <span aria-label='star' role='img'>
-              ⭐
-            </span>
-          ) : (
-            ''
-          )}{' '}
-          {props.name}
+          {name}
         </p>
-        {props.companyName ? (
-          <p className='Card__Description--company'>{props.companyName}</p>
+        {companyName ? (
+          <p className='Card__Description--company'>{companyName}</p>
         ) : null}
       </div>
     </Link>
