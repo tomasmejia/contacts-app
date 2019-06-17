@@ -8,8 +8,9 @@ import './Icon.css';
 const Icon = ({ isFavorite }) => {
   if (isFavorite) {
     return <img  className="Icon" src={favoriteTrue} alt='star true' />;
+  } else {
+    return <img className="Icon" src={favoriteFalse} alt='star false' />;
   }
-  return <img className="Icon" src={favoriteFalse} alt='star false' />;
 };
 
 export default Icon;

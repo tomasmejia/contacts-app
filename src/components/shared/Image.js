@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Image.css';
-import placeholderLarge from '../../assets/user_L/user.png';
+import placeholderLarge from '../../assets/user_L/user_3x.png';
 import placeholderSmall from '../../assets/user_S/user_2x.png';
 
 const Image = ({ src, alt, isSmall }) => {

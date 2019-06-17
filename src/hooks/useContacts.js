@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { API, PROXY } from '../config/misc';
+import { API } from '../config/misc';
 
 const useContacts = () => {
   const [contacts, setContacts] = useState([]);
@@ -11,7 +11,7 @@ const useContacts = () => {
 
   const fetchContacts = async () => {
     try {
-      const res = await fetch(PROXY + API);
+      const res = await fetch(API);
       const data = await res.json();
       setContacts(data);
     } catch (err) {

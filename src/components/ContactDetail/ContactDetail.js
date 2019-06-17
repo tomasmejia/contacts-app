@@ -16,10 +16,13 @@ const ContactDetail = ({ contact, handleFavorite }) => {
       birthdate,
       emailAddress,
       companyName,
+      id,
+      isFavorite,
+      largeImageURL
     } = contact;
-    const fullAddress = `${address.street}, ${address.city}, ${address.state} ${
-      address.zipCode
-    }, ${address.country}`;
+
+    const fullAddress = `${address.street}, ${address.city},
+    ${address.state} ${address.zipCode}, ${address.country}`;
 
     return (
       <div className='Page'>
@@ -29,14 +32,14 @@ const ContactDetail = ({ contact, handleFavorite }) => {
           </Link>
           <span
             className='Detail__favorite'
-            onClick={() => handleFavorite(contact.id)}>
-            <Icon isFavorite={contact.isFavorite} />
+            onClick={() => handleFavorite(id)}>
+            <Icon isFavorite={isFavorite} />
           </span>
         </div>
         <div className='Detail__section Section__content'>
           <Image
-            src={contact.largeImageURL}
-            alt={contact.name}
+            src={largeImageURL}
+            alt={name}
             isSmall={false}
           />
           <div className='Detail__main'>
